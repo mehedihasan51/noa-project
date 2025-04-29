@@ -26,7 +26,7 @@ class AboutBannerController extends Controller
     public $page = PageEnum::ABOUT;
     public $item = SectionEnum::ABOUT_BANNER;
     public $items = SectionEnum::ABOUT_BANNERS;
-    public $count = 4;
+    public $count = 10;
 
     public function __construct(CmsService $cmsService)
     {

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Web\Backend\CMS\Web\About;
 
 use App\Http\Controllers\Controller;
@@ -14,15 +13,17 @@ use Yajra\DataTables\DataTables;
 use App\Http\Requests\CmsRequest;
 use App\Services\CmsService;
 
-class AboutServiceController extends Controller
-{
+
+class AboutInteriorController extends Controller{
+
+
     protected $cmsService;
 
     public $name = "about";
-    public $section = "service";
+    public $section = "interior";
     public $page = PageEnum::ABOUT;
-    public $item = SectionEnum::ABOUT_SERVICE_CONTAINER;
-    public $items = SectionEnum::ABOUT_SERVICE_CONTAINERS;
+    public $item = SectionEnum::ABOUT_INTERIOR_CONTAINER;
+    public $sectionName = SectionEnum::ABOUT_INTERIOR_CONTAINERS;
     public $count = 10;
 
     public function __construct(CmsService $cmsService)

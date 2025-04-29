@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Web\Backend\CMS\Web\About;
+namespace App\Http\Controllers\Web\Backend\CMS\Web\Hire;
 
 use App\Http\Controllers\Controller;
 use App\Enums\PageEnum;
@@ -14,16 +14,16 @@ use Yajra\DataTables\DataTables;
 use App\Http\Requests\CmsRequest;
 use App\Services\CmsService;
 
-class AboutServiceController extends Controller
+class HireBannerController extends Controller
 {
     protected $cmsService;
 
-    public $name = "about";
-    public $section = "service";
-    public $page = PageEnum::ABOUT;
-    public $item = SectionEnum::ABOUT_SERVICE_CONTAINER;
-    public $items = SectionEnum::ABOUT_SERVICE_CONTAINERS;
-    public $count = 10;
+    public $name = "hire";
+    public $section = "banner";
+    public $page = PageEnum::HIRE;
+    public $item = SectionEnum::HIRE_BANNER;
+    public $items = SectionEnum::HIRE_BANNERS;
+    public $count = 4;
 
     public function __construct(CmsService $cmsService)
     {

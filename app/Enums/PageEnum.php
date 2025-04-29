@@ -9,4 +9,10 @@ enum PageEnum: string
     case COMMON = 'common';
 
     case ABOUT  = 'about';
+
+    case CONTACT = 'contact';
+
+    case BLOG = 'blog';
+
+    case HIRE = 'hire';
 }

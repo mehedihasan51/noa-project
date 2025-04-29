@@ -1,31 +1,40 @@
 <?php
 
-use App\Http\Controllers\Web\Backend\Access\PermissionController;
-use App\Http\Controllers\Web\Backend\Access\RoleController;
-use App\Http\Controllers\Web\Backend\Access\UserController;
-use App\Http\Controllers\Web\Backend\CategoryController;
-use App\Http\Controllers\Web\Backend\ChatController;
-use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutCompanyController;
-use App\Http\Controllers\Web\Backend\CMS\Web\Home\HomeBannerController;
-use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutBannerController;
-use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutServiceController;
-use App\Http\Controllers\Web\Backend\ContactController;
-use App\Http\Controllers\Web\Backend\Settings\FirebaseController;
-use App\Http\Controllers\Web\Backend\Settings\ProfileController;
-use App\Http\Controllers\Web\Backend\Settings\MailSettingController;
-use App\Http\Controllers\Web\Backend\Settings\SettingController;
-use App\Http\Controllers\Web\Backend\Settings\SocialController;
-use App\Http\Controllers\Web\Backend\Settings\StripeController;
-use App\Http\Controllers\Web\Backend\Settings\GoogleMapController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\Backend\DashboardController;
+use App\Http\Controllers\Web\Backend\ChatController;
 use App\Http\Controllers\Web\Backend\PageController;
 use App\Http\Controllers\Web\Backend\PostController;
-use App\Http\Controllers\Web\Backend\Settings\CaptchaController;
-use App\Http\Controllers\Web\Backend\Settings\OtherController;
+use App\Http\Controllers\Web\Backend\ContactController;
+use App\Http\Controllers\Web\Backend\CategoryController;
+use App\Http\Controllers\Web\Backend\DashboardController;
 use App\Http\Controllers\Web\Backend\SocialLinkController;
-use App\Http\Controllers\Web\Backend\SubcategoryController;
 use App\Http\Controllers\Web\Backend\SubscriberController;
+use App\Http\Controllers\Web\Backend\Access\RoleController;
+use App\Http\Controllers\Web\Backend\Access\UserController;
+use App\Http\Controllers\Web\Backend\SubcategoryController;
+use App\Http\Controllers\Web\Backend\Settings\OtherController;
+use App\Http\Controllers\Web\Backend\Settings\SocialController;
+use App\Http\Controllers\Web\Backend\Settings\StripeController;
+use App\Http\Controllers\Web\Backend\Settings\CaptchaController;
+use App\Http\Controllers\Web\Backend\Settings\ProfileController;
+use App\Http\Controllers\Web\Backend\Settings\SettingController;
+use App\Http\Controllers\Web\Backend\Access\PermissionController;
+use App\Http\Controllers\Web\Backend\Settings\FirebaseController;
+use App\Http\Controllers\Web\Backend\Settings\GoogleMapController;
+use App\Http\Controllers\Web\Backend\Settings\MailSettingController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutWeController;
+use App\Http\Controllers\Web\Backend\CMS\Web\Blog\BlogBannerController;
+use App\Http\Controllers\Web\Backend\CMS\Web\Hire\HireBannerController;
+use App\Http\Controllers\Web\Backend\CMS\Web\Home\HomeBannerController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutBannerController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutOfficeController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutCompanyController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutMissionController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutServiceController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutCleaningController;
+use App\Http\Controllers\Web\Backend\CMS\Web\About\AboutInteriorController;
+use App\Http\Controllers\Web\Backend\CMS\Web\Contact\ContactBannerController;
+use App\Http\Controllers\Web\Backend\CMS\Web\Hire\CommittedController;
 
 Route::get("dashboard", [DashboardController::class, 'index'])->name('dashboard');
 
@@ -157,9 +166,134 @@ Route::prefix('cms')->name('cms.')->group(function () {
         Route::put('/content', 'content')->name('content');
     });
 
+    Route::prefix('about/mission')->name('about.mission.')->controller(AboutMissionController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
+
+
+    Route::prefix('about/we')->name('about.we.')->controller(AboutWeController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
+    
+    
+    Route::prefix('about/cleaning')->name('about.cleaning.')->controller(AboutCleaningController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+    
+        Route::put('/content', 'content')->name('content');
+    });
+
+    Route::prefix('about/office')->name('about.office.')->controller(AboutOfficeController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
+
+
+    Route::prefix('about/interior')->name('about.interior.')->controller(AboutInteriorController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
+
+
+    Route::prefix('contact/banner')->name('contact.banner.')->controller(ContactBannerController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
+
+
+    Route::prefix('blog/banner')->name('blog.banner.')->controller(BlogBannerController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
+
+
+    Route::prefix('hire/banner')->name('hire.banner.')->controller(HireBannerController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
+
+    Route::prefix('hire/committed')->name('hire.committed.')->controller(CommittedController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::patch('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+        Route::get('/{id}/status', 'status')->name('status');
+
+        Route::put('/content', 'content')->name('content');
+    });
     
     
 });
+
+
+
 
 /*
 * Chating Route

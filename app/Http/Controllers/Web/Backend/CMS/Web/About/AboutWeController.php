@@ -14,24 +14,23 @@ use Yajra\DataTables\DataTables;
 use App\Http\Requests\CmsRequest;
 use App\Services\CmsService;
 
-class AboutServiceController extends Controller
+
+class AboutWeController extends Controller
 {
     protected $cmsService;
 
     public $name = "about";
-    public $section = "service";
+    public $section = "we";
     public $page = PageEnum::ABOUT;
-    public $item = SectionEnum::ABOUT_SERVICE_CONTAINER;
-    public $items = SectionEnum::ABOUT_SERVICE_CONTAINERS;
+    public $item = SectionEnum::ABOUT_WE_CONTAINER;
+    public $items = SectionEnum::ABOUT_WE_CONTAINERS;
     public $count = 10;
 
     public function __construct(CmsService $cmsService)
     {
         $this->cmsService = $cmsService;
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(Request $request)
     {
         if ($request->ajax()) {

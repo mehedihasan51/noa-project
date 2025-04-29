@@ -14,15 +14,15 @@ use Yajra\DataTables\DataTables;
 use App\Http\Requests\CmsRequest;
 use App\Services\CmsService;
 
-class AboutServiceController extends Controller
+class AboutOfficeController extends Controller
 {
     protected $cmsService;
 
     public $name = "about";
-    public $section = "service";
+    public $section = "office";
     public $page = PageEnum::ABOUT;
-    public $item = SectionEnum::ABOUT_SERVICE_CONTAINER;
-    public $items = SectionEnum::ABOUT_SERVICE_CONTAINERS;
+    public $item = SectionEnum::ABOUT_OFFICE_CONTAINER;
+    public $items = SectionEnum::ABOUT_OFFICE_CONTAINERS;
     public $count = 10;
 
     public function __construct(CmsService $cmsService)

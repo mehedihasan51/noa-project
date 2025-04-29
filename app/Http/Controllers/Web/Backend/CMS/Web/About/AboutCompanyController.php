@@ -23,7 +23,7 @@ class AboutCompanyController extends Controller
     public $page = PageEnum::ABOUT;
     public $item = SectionEnum::ABOUT_COMPANY_CONTAINER;
     public $items = SectionEnum::ABOUT_COMPANY_CONTAINERS;
-    public $count = 4;
+    public $count = 10;
 
     public function __construct(CmsService $cmsService)
     {
