@@ -71,7 +71,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="name" class="form-label">Name:</label>
+                                            <label for="name" class="form-label">Name :</label>
                                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter here name" id="name" value="{{ $section->name ?? '' }}">
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="sub_description" class="form-label">Sub Description:</label>
+                                            <label for="sub_description" class="form-label">Sub Description :</label>
                                             <textarea class="form-control @error('description') is-invalid @enderror" name="sub_description" id="sub_description" placeholder="Enter here sub description" rows="3">{{ $section->sub_description ?? '' }}</textarea>
                                             @error('sub_description')
                                             <span class="invalid-feedback" role="alert">
